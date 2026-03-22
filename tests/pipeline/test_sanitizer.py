@@ -67,3 +67,32 @@ def test_body_and_timestamp_preserved():
     result = sanitize(messages)
     assert result[0].body == "Try Saravana Bhavan in Chennai!"
     assert result[0].timestamp == _TS
+
+
+def test_email_in_body_redacted():
+    messages = [_msg("Alice", "Book via reservations@restaurant.com for a table")]
+    result = sanitize(messages)
+    assert "reservations@restaurant.com" not in result[0].body
+    assert "[EMAIL]" in result[0].body
+
+
+def test_email_with_subdomains_redacted():
+    messages = [_msg("Alice", "Contact info@food.co.in for delivery")]
+    result = sanitize(messages)
+    assert "info@food.co.in" not in result[0].body
+    assert "[EMAIL]" in result[0].body
+
+
+def test_email_and_phone_both_redacted():
+    messages = [_msg("Alice", "Call +91 98333 03828 or email hi@place.com")]
+    result = sanitize(messages)
+    assert "[PHONE]" in result[0].body
+    assert "[EMAIL]" in result[0].body
+    assert "+91" not in result[0].body
+    assert "hi@place.com" not in result[0].body
+
+
+def test_no_email_body_unchanged():
+    messages = [_msg("Alice", "The place is on MG Road, great food!")]
+    result = sanitize(messages)
+    assert result[0].body == "The place is on MG Road, great food!"
