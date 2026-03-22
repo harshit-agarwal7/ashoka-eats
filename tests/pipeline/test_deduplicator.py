@@ -1,6 +1,5 @@
 """Tests for the recommendation deduplicator."""
 
-
 from pipeline.deduplicator import deduplicate
 from pipeline.extractor import RawRecommendation
 

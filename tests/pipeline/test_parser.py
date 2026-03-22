@@ -80,7 +80,11 @@ def test_message_dataclass_fields():
 
 
 def test_chat_with_phone_number_sender():
-    """Phone number senders (common in WhatsApp groups) are parsed correctly."""
+    """Phone number senders (common in WhatsApp groups) are parsed correctly.
+
+    The parser preserves phone numbers as-is; sanitizer.sanitize() is responsible
+    for replacing them with anonymous tokens before LLM processing.
+    """
     chat = "15/06/23, 2:30 pm - +91 98333 03828: Try Saravana Bhavan in Chennai!\n"
     messages = parse_chat(chat)
     assert len(messages) == 1

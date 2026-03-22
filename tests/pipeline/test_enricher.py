@@ -1,7 +1,5 @@
 """Tests for the enricher module."""
 
-
-
 from pipeline.deduplicator import MergedRecommendation
 from pipeline.enricher import Recommendation, enrich
 

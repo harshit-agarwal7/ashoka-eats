@@ -17,6 +17,7 @@ from pipeline.deduplicator import deduplicate
 from pipeline.enricher import enrich
 from pipeline.extractor import extract_from_chunks
 from pipeline.parser import parse_chat
+from pipeline.sanitizer import sanitize
 from pipeline.writer import write_output
 
 logging.basicConfig(
@@ -67,6 +68,7 @@ async def _run(args: argparse.Namespace) -> None:
     raw_text = chat_path.read_text(encoding="utf-8")
     messages = parse_chat(raw_text)
     logger.info("Parsed %d messages", len(messages))
+    messages = sanitize(messages)
 
     # Phase 2: Chunk
     chunks = chunk_messages(messages, size=settings.chunk_size, stride=settings.chunk_stride)
