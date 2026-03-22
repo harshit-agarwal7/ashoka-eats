@@ -1,0 +1,98 @@
+[
+  {
+    "id": "bukhara-new-delhi",
+    "place_name": "Bukhara",
+    "city": "New Delhi",
+    "city_slug": "new-delhi",
+    "category": "food",
+    "category_slug": "food",
+    "recommender_name": "Priya S",
+    "quotes": ["Bukhara's dal makhani is life changing, you have to go!", "Absolutely legendary, been 3 times now."],
+    "confidence": 0.95,
+    "recommender_trust_score": 0.85
+  },
+  {
+    "id": "toit-bengaluru",
+    "place_name": "Toit",
+    "city": "Bengaluru",
+    "city_slug": "bengaluru",
+    "category": "drinks",
+    "category_slug": "drinks",
+    "recommender_name": "Rohan M",
+    "quotes": ["Best craft beer in the city, great ambience too."],
+    "confidence": 0.88,
+    "recommender_trust_score": 0.72
+  },
+  {
+    "id": "third-wave-coffee-bengaluru",
+    "place_name": "Third Wave Coffee",
+    "city": "Bengaluru",
+    "city_slug": "bengaluru",
+    "category": "cafe",
+    "category_slug": "cafe",
+    "recommender_name": "Ananya K",
+    "quotes": ["Amazing cold brew and great work vibes."],
+    "confidence": 0.82,
+    "recommender_trust_score": 0.65
+  },
+  {
+    "id": "britannia-and-co-mumbai",
+    "place_name": "Britannia & Co.",
+    "city": "Mumbai",
+    "city_slug": "mumbai",
+    "category": "food",
+    "category_slug": "food",
+    "recommender_name": "Priya S",
+    "quotes": ["The berry pulao is the most unique thing you'll eat in India."],
+    "confidence": 0.91,
+    "recommender_trust_score": 0.85
+  },
+  {
+    "id": "peter-cat-kolkata",
+    "place_name": "Peter Cat",
+    "city": "Kolkata",
+    "city_slug": "kolkata",
+    "category": "food",
+    "category_slug": "food",
+    "recommender_name": "Siddharth R",
+    "quotes": ["Chello kebab is iconic. The restaurant itself has amazing old-world charm."],
+    "confidence": 0.89,
+    "recommender_trust_score": 0.58
+  },
+  {
+    "id": "saravana-bhavan-chennai",
+    "place_name": "Saravana Bhavan",
+    "city": "Chennai",
+    "city_slug": "chennai",
+    "category": "food",
+    "category_slug": "food",
+    "recommender_name": "Divya N",
+    "quotes": ["Best dosas in Chennai, no debate."],
+    "confidence": 0.93,
+    "recommender_trust_score": 0.50
+  },
+  {
+    "id": "indian-accent-new-delhi",
+    "place_name": "Indian Accent",
+    "city": "New Delhi",
+    "city_slug": "new-delhi",
+    "category": "food",
+    "category_slug": "food",
+    "recommender_name": "Rohan M",
+    "quotes": ["If you're celebrating something, go here. Worth every rupee."],
+    "confidence": 0.87,
+    "recommender_trust_score": 0.72
+  },
+  {
+    "id": "kala-ghoda-cafe-mumbai",
+    "place_name": "Kala Ghoda Cafe",
+    "city": "Mumbai",
+    "city_slug": "mumbai",
+    "category": "cafe",
+    "category_slug": "cafe",
+    "recommender_name": "Ananya K",
+    "quotes": ["Sit outside, order the filter coffee. Perfect Sunday morning."],
+    "confidence": 0.80,
+    "recommender_trust_score": 0.65
+  }
+]

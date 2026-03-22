@@ -1,0 +1,44 @@
+{
+  "cities": ["Bengaluru", "Chennai", "Kolkata", "Mumbai", "New Delhi"],
+  "categories": ["cafe", "drinks", "food"],
+  "recommenders": [
+    {
+      "name": "Priya S",
+      "recommendation_count": 2,
+      "trust_score": 0.85,
+      "top_cities": ["New Delhi", "Mumbai"],
+      "top_categories": ["food"]
+    },
+    {
+      "name": "Rohan M",
+      "recommendation_count": 2,
+      "trust_score": 0.72,
+      "top_cities": ["Bengaluru", "New Delhi"],
+      "top_categories": ["drinks", "food"]
+    },
+    {
+      "name": "Ananya K",
+      "recommendation_count": 2,
+      "trust_score": 0.65,
+      "top_cities": ["Bengaluru", "Mumbai"],
+      "top_categories": ["cafe"]
+    },
+    {
+      "name": "Siddharth R",
+      "recommendation_count": 1,
+      "trust_score": 0.58,
+      "top_cities": ["Kolkata"],
+      "top_categories": ["food"]
+    },
+    {
+      "name": "Divya N",
+      "recommendation_count": 1,
+      "trust_score": 0.50,
+      "top_cities": ["Chennai"],
+      "top_categories": ["food"]
+    }
+  ],
+  "total_recommendations": 8,
+  "pipeline_run_at": "2026-03-22T10:00:00+00:00",
+  "source_message_count": 342
+}

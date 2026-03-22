@@ -1,0 +1,7 @@
+chat/
+.env
+data/raw_chunks.json
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
