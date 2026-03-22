@@ -46,6 +46,13 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip LLM extraction and re-use existing data/raw_chunks.json",
     )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Process only the first N messages (useful for quick tests)",
+    )
     return parser.parse_args()
 
 
@@ -69,6 +76,9 @@ async def _run(args: argparse.Namespace) -> None:
     messages = parse_chat(raw_text)
     logger.info("Parsed %d messages", len(messages))
     messages = sanitize(messages)
+    if args.limit is not None:
+        messages = messages[: args.limit]
+        logger.info("Limiting to first %d messages", len(messages))
 
     # Phase 2: Chunk
     chunks = chunk_messages(messages, size=settings.chunk_size, stride=settings.chunk_stride)
