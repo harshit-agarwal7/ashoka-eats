@@ -5,26 +5,26 @@ from datetime import datetime
 from pipeline.parser import Message, parse_chat
 
 SIMPLE_CHAT = """\
-[01/03/2024, 10:00:00] Alice: Hello everyone!
-[01/03/2024, 10:01:00] Bob: Hey Alice!
-[01/03/2024, 10:02:00] Charlie: Good morning
+01/03/24, 10:00 am - Alice: Hello everyone!
+01/03/24, 10:01 am - Bob: Hey Alice!
+01/03/24, 10:02 am - Charlie: Good morning
 """
 
 MULTILINE_CHAT = """\
-[01/03/2024, 10:00:00] Alice: You should try Bukhara in Delhi,
+01/03/24, 10:00 am - Alice: You should try Bukhara in Delhi,
 it's absolutely amazing for dal makhani.
 Seriously one of the best I've had.
-[01/03/2024, 10:01:00] Bob: Noted!
+01/03/24, 10:01 am - Bob: Noted!
 """
 
 MEDIA_OMITTED_CHAT = """\
-[01/03/2024, 10:00:00] Alice: <Media omitted>
-[01/03/2024, 10:01:00] Bob: Check this place out!
+01/03/24, 10:00 am - Alice: <Media omitted>
+01/03/24, 10:01 am - Bob: Check this place out!
 """
 
 SYSTEM_MESSAGE_CHAT = """\
-[01/03/2024, 10:00:00] Alice created group "Ashoka Eats"
-[01/03/2024, 10:01:00] Bob: Hello!
+01/03/24, 10:00 am - Group creator created group "Ashoka Eats"
+01/03/24, 10:01 am - Bob: Hello!
 """
 
 EMPTY_CHAT = ""
@@ -79,10 +79,10 @@ def test_message_dataclass_fields():
     assert hasattr(msg, "body")
 
 
-def test_chat_with_ios_format():
-    """iOS exports use [DD/MM/YYYY, HH:MM:SS] format — same as tested above."""
-    ios_chat = "[15/06/2023, 14:30:45] Priya: Try Saravana Bhavan in Chennai!\n"
-    messages = parse_chat(ios_chat)
+def test_chat_with_phone_number_sender():
+    """Phone number senders (common in WhatsApp groups) are parsed correctly."""
+    chat = "15/06/23, 2:30 pm - +91 98333 03828: Try Saravana Bhavan in Chennai!\n"
+    messages = parse_chat(chat)
     assert len(messages) == 1
-    assert messages[0].sender == "Priya"
-    assert messages[0].timestamp == datetime(2023, 6, 15, 14, 30, 45)
+    assert messages[0].sender == "+91 98333 03828"
+    assert messages[0].timestamp == datetime(2023, 6, 15, 14, 30, 0)

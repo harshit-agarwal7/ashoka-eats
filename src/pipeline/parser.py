@@ -11,8 +11,8 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-# Matches: [DD/MM/YYYY, HH:MM:SS] Sender: body
-_LINE_RE = re.compile(r"^\[(\d{2}/\d{2}/\d{4}),\s(\d{2}:\d{2}:\d{2})\]\s([^:]+):\s(.*)$")
+# Matches: DD/MM/YY, HH:MM am/pm - Sender: body  (Android WhatsApp export format)
+_LINE_RE = re.compile(r"^(\d{1,2}/\d{2}/\d{2}),\s(\d{1,2}:\d{2}\s[ap]m)\s-\s([^:]+):\s(.*)$")
 
 _SKIP_BODIES = {"<Media omitted>", "This message was deleted", "null"}
 
@@ -58,7 +58,7 @@ def parse_chat(raw: str) -> list[Message]:
 
             date_str, time_str, sender, body = match.groups()
             try:
-                timestamp = datetime.strptime(f"{date_str} {time_str}", "%d/%m/%Y %H:%M:%S")
+                timestamp = datetime.strptime(f"{date_str} {time_str}".upper(), "%d/%m/%y %I:%M %p")
             except ValueError:
                 logger.warning("Could not parse timestamp from line: %r", line)
                 pending = None
